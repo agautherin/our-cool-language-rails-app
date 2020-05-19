@@ -1,0 +1,14 @@
+
+<%= form_for @letter do |f| %>
+    <%= f.label :character_code, "Enter a Character: " %>
+    <%= f.text_field :character_code %>
+    <%= f.label :alphabet_type %>
+    <%= f.text_field :alphabet_type %>
+
+    <%= f.fields_for :languages do |l| %>
+        <%= l.label :name %>
+        <%= l.collection_select :language_id, Language.all, :id, :name, {prompt: "Choose a Language!!"}%>
+    <% end %>
+
+    <%= f.submit %>
+<% end %>

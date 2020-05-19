@@ -1,0 +1,9 @@
+<h1> Letters </h1>
+
+<ul>
+    <%@letters.each do |let|%>
+        <li><%= link_to let.character_code.chr(Encoding::UTF_8), letter_path(let)%></li>
+    <% end %>
+</ul>
+
+<%= link_to "Create a new letter", new_letter_path%>

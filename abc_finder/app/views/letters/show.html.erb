@@ -1,0 +1,20 @@
+
+<h1> <%= @letter.character_code.chr(Encoding::UTF_8)%> </h1>
+<%= @letter.alphabet_type%>
+
+<ol>
+    <% @letter.languages.each do |lang|%>
+        <li><%= link_to lang.name, language_path(lang)%></li>
+    <% end %>
+</ol> 
+
+<h4> Add a new Language </h4>
+
+<%=form_tag "letters/:id/addlang" do %>
+    <label for="lang"> Language </label>
+    <%= select_tag :language_id, options_from_collection_for_select(Language.all, "id", "name") %> 
+    <%= submit_tag "Add a lang"%>    
+<% end %>
+
+
+<%= link_to "Go back to the Index page", letters_path %>

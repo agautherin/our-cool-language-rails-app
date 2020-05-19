@@ -1,0 +1,9 @@
+<h1> <%= @language.name%> </h1>
+
+<ol>
+    <% @language.letters.each do |let|%>
+        <li><%= link_to let.character_code.chr, letter_path(let)%></li>
+    <% end %>
+</ol> 
+
+<%= link_to "Go back to the Index page", languages_path %>
